@@ -10,4 +10,5 @@ public interface ProductService {
     public Product findProductById(UUID id);
     public int getProductIdx(Product product);
     public Product editProduct(Product product);
+    public Product deleteProduct(Product product);
 }
