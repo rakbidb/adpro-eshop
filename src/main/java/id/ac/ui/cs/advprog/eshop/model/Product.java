@@ -7,11 +7,11 @@ import java.util.UUID;
 
 @Getter @Setter
 public class Product {
-    private UUID productId;
+    private String productId;
     private String productName;
     private int productQuantity;
 
     public Product() {
-        this.productId = UUID.randomUUID();
+        this.productId = UUID.randomUUID().toString();
     }
 }

@@ -44,7 +44,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product findProductById(UUID id) {
+    public Product findProductById(String id) {
         return productRepository.getProductById(id);
     }
 
