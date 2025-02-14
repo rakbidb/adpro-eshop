@@ -24,8 +24,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product editProduct(Product product) {
-        int idx = productRepository.getProductIdx(product);
-        productRepository.edit(product, idx);
+        productRepository.edit(product);
         return product;
     }
 
@@ -44,7 +43,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product findProductById(UUID id) {
+    public Product findProductById(String id) {
         return productRepository.getProductById(id);
     }
 
