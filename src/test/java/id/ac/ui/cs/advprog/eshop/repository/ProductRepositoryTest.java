@@ -25,6 +25,7 @@ class ProductRepositoryTest{
         productRepository.create(product);
         Iterator<Product> productIterator = productRepository.findAll();
         assertTrue(productIterator.hasNext());
+
         Product savedProduct = productIterator.next();
         assertEquals(product.getProductId(), savedProduct.getProductId());
         assertEquals(product.getProductName(), savedProduct.getProductName());
@@ -42,17 +43,65 @@ class ProductRepositoryTest{
         product1.setProductName("Sampo Cap Bambang");
         product1.setProductQuantity(100);
         productRepository.create(product1);
+
         Product product2 = new Product();
         product2.setProductId("a0f9de46-90b1-437d-a0bf-d0821dde9096");
         product2.setProductName("Sampo Cap Usep");
         product2.setProductQuantity(50);
         productRepository.create(product2);
+
         Iterator<Product> productIterator = productRepository.findAll();
         assertTrue(productIterator.hasNext());
         Product savedProduct = productIterator.next();
         assertEquals(product1.getProductId(), savedProduct.getProductId());
         savedProduct = productIterator.next();
         assertEquals(product2.getProductId(), savedProduct.getProductId());
+        assertFalse(productIterator.hasNext());
+    }
+
+    @Test
+    void testEditProduct(){
+        Product product = new Product();
+        product.setProductId("eb558e9f-1c39-460e-8860-71af61af63bd6");
+        product.setProductName("Product #1");
+        product.setProductQuantity(100);
+        productRepository.create(product);
+
+        Iterator<Product> productIterator = productRepository.findAll();
+        assertTrue(productIterator.hasNext());
+        Product savedProduct = productIterator.next();
+        assertEquals(product.getProductId(), savedProduct.getProductId());
+        assertEquals(product.getProductName(), savedProduct.getProductName());
+        assertEquals(product.getProductQuantity(), savedProduct.getProductQuantity());
+        product.setProductName("Product #1 - edited");
+        productRepository.edit(product);
+
+        productIterator = productRepository.findAll();
+        assertTrue(productIterator.hasNext());
+        Product editedProduct = productIterator.next();
+        assertEquals(product.getProductId(), editedProduct.getProductId());
+        assertEquals(product.getProductName(), editedProduct.getProductName());
+        assertEquals(product.getProductQuantity(), editedProduct.getProductQuantity());
+        assertFalse(productIterator.hasNext());
+    }
+
+    @Test
+    void testDeleteProduct(){
+        Product product = new Product();
+        product.setProductId("eb558e9f-1c39-460e-8860-71af61af63bd6");
+        product.setProductName("Product #1");
+        product.setProductQuantity(100);
+        productRepository.create(product);
+
+        Iterator<Product> productIterator = productRepository.findAll();
+        assertTrue(productIterator.hasNext());
+        Product savedProduct = productIterator.next();
+        assertEquals(product.getProductId(), savedProduct.getProductId());
+        assertEquals(product.getProductName(), savedProduct.getProductName());
+        assertEquals(product.getProductQuantity(), savedProduct.getProductQuantity());
+        productRepository.delete(product);
+
+        productIterator = productRepository.findAll();
         assertFalse(productIterator.hasNext());
     }
 }

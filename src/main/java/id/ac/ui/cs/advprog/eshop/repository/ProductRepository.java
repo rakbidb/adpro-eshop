@@ -17,9 +17,11 @@ public class ProductRepository {
         return product;
     }
 
-    public Product edit(Product product, int idx) {
-        productData.set(idx, product);
-        return product;
+    public Product edit(Product newProduct) {
+        Product oldProduct = getProductById(newProduct.getProductId());
+        int index = productData.indexOf(oldProduct);
+        productData.set(index, newProduct);
+        return newProduct;
     }
     
     public Product delete(Product product) {
