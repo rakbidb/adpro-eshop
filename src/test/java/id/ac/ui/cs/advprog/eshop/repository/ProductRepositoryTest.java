@@ -100,7 +100,7 @@ class ProductRepositoryTest{
         assertEquals(product.getProductName(), savedProduct.getProductName());
         assertEquals(product.getProductQuantity(), savedProduct.getProductQuantity());
         productRepository.delete(product);
-        
+
         productIterator = productRepository.findAll();
         assertFalse(productIterator.hasNext());
     }
