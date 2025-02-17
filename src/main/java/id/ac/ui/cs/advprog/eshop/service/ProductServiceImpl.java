@@ -3,7 +3,9 @@ package id.ac.ui.cs.advprog.eshop.service;
 import id.ac.ui.cs.advprog.eshop.model.Product;
 import id.ac.ui.cs.advprog.eshop.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -44,11 +46,10 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product findProductById(String id) {
-        return productRepository.getProductById(id);
-    }
-
-    @Override
-    public int getProductIdx(Product product) {
-        return productRepository.getProductIdx(product);
+        Product product = productRepository.getProductById(id);
+        if (product == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product Not Found");
+        }
+        return product;
     }
 }
