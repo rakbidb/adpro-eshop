@@ -34,12 +34,9 @@ public class ProductRepository {
     }
 
     public Product getProductById(String id) {
-        for (Product product : productData) {
-            if (product.getProductId().equals(id)) {
-                return product;
-            }
-        }
-
-        return null;
+        return productData.stream()
+                .filter(product -> product.getProductId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 }
