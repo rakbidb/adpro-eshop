@@ -43,12 +43,4 @@ public class ProductRepository {
         return null;
     }
 
-    public int getProductIdx(Product product) {
-        for (int i = 0; i < productData.size(); i++) {
-            if (productData.get(i).getProductId().equals(product.getProductId())) {
-                return i;
-            }
-        }
-        return -1;
-    }
 }
