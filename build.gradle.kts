@@ -14,7 +14,7 @@ plugins {
 sonar {
     properties {
         property("sonar.projectKey", "rakbidb_adpro-eshop")
-        property("sonar.organization", "rakbidb")
+        property("sonar.organization", "suksesduniaakhirat")
         property("sonar.host.url", "https://sonarcloud.io")
     }
 }
