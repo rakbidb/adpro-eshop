@@ -12,7 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 @ExtendWith(MockitoExtension.class)
-public class HomePageControllerTest {
+class HomePageControllerTest {
     @Autowired
     private MockMvc mockMvc;
     @InjectMocks
