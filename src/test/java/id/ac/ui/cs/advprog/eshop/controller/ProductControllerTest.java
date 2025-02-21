@@ -36,21 +36,21 @@ class ProductControllerTest{
         mockMvc = MockMvcBuilders.standaloneSetup(productController).build();
     }
     @Test
-    public void testGetProductListPage() throws Exception {
+    void testGetProductListPage() throws Exception {
         List<Product> allProducts = productService.findAll();
         mockMvc.perform(get("/product/list")).andExpect(status().isOk())
                 .andExpect(view().name("productList"))
                 .andExpect(model().attribute("products", allProducts));
     }
     @Test
-    public void testGetCreateProductpage() throws Exception {
+    void testGetCreateProductpage() throws Exception {
         mockMvc.perform(get("/product/create"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("createProduct"))
                 .andExpect(model().attributeExists("product"));
     }
     @Test
-    public void testPostCreateProduct() throws Exception {
+    void testPostCreateProduct() throws Exception {
         Product product = new Product();
         mockMvc.perform(post("/product/create")
                         .flashAttr("product", product))
@@ -58,14 +58,14 @@ class ProductControllerTest{
                 .andExpect(redirectedUrl("list"));
     }
     @Test
-    public void testGetEditProductPage() throws Exception {
+    void testGetEditProductPage() throws Exception {
         Product product = new Product();
         mockMvc.perform(get("/product/edit/{id}", product.getProductId()))
                 .andExpect(status().isOk())
                 .andExpect(view().name("editProduct"));
     }
     @Test
-    public void testPostEditProduct() throws Exception {
+    void testPostEditProduct() throws Exception {
         Product product = new Product();
         mockMvc.perform(post("/product/edit/{id}", product.getProductId())
                         .flashAttr("product", product))
@@ -73,7 +73,7 @@ class ProductControllerTest{
                 .andExpect(redirectedUrl("/product/list"));
     }
     @Test
-    public void testPostDeleteProduct() throws Exception {
+    void testPostDeleteProduct() throws Exception {
         Product product = new Product();
         mockMvc.perform(post("/product/delete/{id}", product.getProductId())
                         .flashAttr("product", product))
