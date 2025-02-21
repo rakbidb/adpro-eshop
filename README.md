@@ -37,3 +37,11 @@ Some mistakes I found in the code:
    **Answer:**
 
    Some of the code cleanliness concern i can think is that it may cause duplicates and the codes are not independent anymore
+
+---
+# Tutorial 2
+Code quality issues I've identified include the need to eliminate the public modifier from tests due to deprecation. To enhance adaptability, a test case should be added to the main app test class. Consistency should be improved by transitioning from @Autowired field injection to method injection. I've also removed several unused imports from the code base.
+
+In terms of Continuous Integration and Continuous Deployment (CI/CD), the project aligns with these principles. Three workflows (ci, scorecard, and sonarcloud) exist, each containing specific jobs with custom commands for automated tasks, mainly focused on testing. The workflows are triggered automatically after push or pull requests, demonstrating a well-implemented CI/CD process.
+
+---
