@@ -45,3 +45,31 @@ Code quality issues I've identified include the need to eliminate the public mod
 In terms of Continuous Integration and Continuous Deployment (CI/CD), the project aligns with these principles. Three workflows (ci, scorecard, and sonarcloud) exist, each containing specific jobs with custom commands for automated tasks, mainly focused on testing. The workflows are triggered automatically after push or pull requests, demonstrating a well-implemented CI/CD process.
 
 ---
+# Tutorial 3
+1. Explain what principles you apply to your project!
+   - SRP:
+      - Moved CarController from ProductController.java to its own file CarController.java
+      - CarController now isn't extending ProductController anymore
+      - Removed constructor from model Product.java (now id is assigned by ProductRepository)
+   - OCP:
+      - The code given by the module didn't violate any OSP
+   - LSP:
+      - The code given by the module didn't violate any LSP
+   - ISP:
+      - The code given by the module didn't violate any ISP
+   - DIP:
+      - Used the interface CarService instead of CarServiceImpl
+
+
+2. Explain the advantages of applying SOLID principles to your project with examples.
+
+   **Answer:**
+
+   Applying SOLID principles in this project brings several advantages that contribute to the creation of robust and maintainable code. Firstly, the Single Responsibility Principle (SRP) ensures that each class has a single reason to change, enhancing code maintainability and readability. The Open/Closed Principle (OCP) encourages extensibility without modifying existing code. Liskov Substitution Principle (LSP) enables derived classes to be used interchangeably with base classes. This promotes flexibility and ease of code extension. Interface Segregation Principle (ISP) encourages the creation of specific interfaces, preventing the implementation of unnecessary methods and ensuring that classes only adhere to interfaces relevant to their functionality. Finally, the Dependency Inversion Principle (DIP) enhances flexibility by allowing the substitution of dependencies, making it easier to adapt to changes in lower-level implementations without affecting higher-level modules.
+
+
+3. Explain the disadvantages of not applying SOLID principles to your project with examples.
+
+   **Answer:**
+
+   Not Applying SOLID principles can lead to a variety of disadvantages, making the codebase difficult to maintain. Without adhering to the Single Responsibility Principle, classes may have multiple reasons to change, resulting in code that is hard to modify and prone to unintended consequences. Reduced reusability is another drawback, particularly when the Open/Closed Principle and Liskov Substitution Principle are ignored. Code modifications become a necessity, diminishing the potential for reuse and increasing the complexity of the system. The lack of flexibility can hinder the adaptability of the codebase to evolving requirements. In summary, the absence of SOLID principles often results in complex, confusing code that is challenging to understand and modify, leading to decreased overall software quality.
