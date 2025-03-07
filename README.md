@@ -73,3 +73,19 @@ In terms of Continuous Integration and Continuous Deployment (CI/CD), the projec
    **Answer:**
 
    Not Applying SOLID principles can lead to a variety of disadvantages, making the codebase difficult to maintain. Without adhering to the Single Responsibility Principle, classes may have multiple reasons to change, resulting in code that is hard to modify and prone to unintended consequences. Reduced reusability is another drawback, particularly when the Open/Closed Principle and Liskov Substitution Principle are ignored. Code modifications become a necessity, diminishing the potential for reuse and increasing the complexity of the system. The lack of flexibility can hinder the adaptability of the codebase to evolving requirements. In summary, the absence of SOLID principles often results in complex, confusing code that is challenging to understand and modify, leading to decreased overall software quality.
+
+---
+# Tutorial 4
+1. You have followed the Test-Driven Development workflow in the Exercise. Now answer these questions:
+   Reflect based on Percival (2017) proposed self-reflective questions (in “Principles and Best Practice of Testing” submodule, chapter “Evaluating Your Testing Objectives”), whether this TDD flow is useful enough for you or not. If not, explain things that you need to do next time you make more tests.
+    
+    **Answer:**
+
+    In my opinion, the Test-Driven Development (TDD) flow has its benefits, even though it's challenging to implement. I believe that the Test-Driven Development (TDD) approach is valuable. I still struggle with making tests before implementing a class. Regardless of that, the TDD flow assists me in evaluating whether what I'm doing meets correctness, maintainability, and a productive workflow. I find it necessary to consistently verify whether the tests, both unit and functional, are correct.
+
+
+2. You have created unit tests in Tutorial. Now reflect whether your tests have successfully followed F.I.R.S.T. principle or not. If not, explain things that you need to do the next time you create more tests. 
+
+   **Answer:**
+
+    I don't think i've fully implemented the F.I.R.S.T. principle. I still am not sure on some tests that I made, due to the amount of tests that I made. I also didn't check the coverage and I'm pretty sure it didn't reach 100% coverage. I'll have to check and fix more tests to fully implement F.I.R.S.T principles, but I think it's good enough for a first-timer like me.
