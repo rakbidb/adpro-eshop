@@ -26,9 +26,9 @@ public class PaymentVoucher extends Payment {
             }
             this.paymentData = paymentData;
             if (paymentData.get("voucherCode").length() == 16 && paymentData.get("voucherCode").startsWith("ESHOP") && numericalChar == 8) {
-                this.setStatus("SUCCESS");
+                this.setStatus(PaymentStatus.SUCCESS.getValue());
             } else {
-                this.setStatus("REJECTED");
+                this.setStatus(PaymentStatus.REJECTED.getValue());
             }
         }
     }
