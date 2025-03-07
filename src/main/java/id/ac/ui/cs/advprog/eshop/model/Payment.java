@@ -1,5 +1,8 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
+import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentMethods;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,25 +19,25 @@ public class Payment {
 
     public Payment(String id, String method, Order order, Map<String, String> paymentData) {
         this.id = id;
-        this.method = method;
+        this.setMethod(method);
+        this.setOrder(order);
+        this.setPaymentData(paymentData);
+        this.setStatus(PaymentStatus.PENDING.getValue());
+    }
+
+    public Payment(String id, String method, Order order, Map<String, String> paymentData, String status) {
+        this.id = id;
+        this.setMethod(method);
         this.setOrder(order);
         this.setPaymentData(paymentData);
         this.setStatus(status);
     }
 
-    public Payment(String id, String method, Order order, Map<String, String> paymentData, String status) {
-        this.id = id;
-        this.method = method;
-        this.paymentData = paymentData;
-        this.status = "REJECTED";
-    }
-
     public void setStatus(String status) {
-        String[] statusList = {"SUCCESS", "REJECTED", "PENDING"};
-        if (Arrays.stream(statusList).noneMatch(item -> (item.equals(status)))) {
-            throw new IllegalArgumentException("Invalid status");
-        } else {
+        if (PaymentStatus.contains(status)) {
             this.status = status;
+        } else {
+            throw new IllegalArgumentException("Invalid status");
         }
     }
 
@@ -45,11 +48,19 @@ public class Payment {
         this.order = order;
     }
 
-    protected void setPaymentData(Map<String, String> paymentData) {
+    private void setPaymentData(Map<String, String> paymentData) {
         if (paymentData.isEmpty()) {
             throw new IllegalArgumentException();
         } else {
             this.paymentData = paymentData;
+        }
+    }
+
+    private void setMethod(String method){
+        if (PaymentMethods.contains(method)) {
+            this.method = method;
+        } else {
+            throw new IllegalArgumentException("Invalid Status");
         }
     }
 }
