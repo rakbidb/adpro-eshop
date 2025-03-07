@@ -15,7 +15,7 @@ public class Payment {
     private String method;
     private String status;
     private Order order;
-    private Map<String, String> paymentData;
+    Map<String, String> paymentData;
 
     public Payment(String id, String method, Order order, Map<String, String> paymentData) {
         this.id = id;
@@ -48,7 +48,7 @@ public class Payment {
         this.order = order;
     }
 
-    private void setPaymentData(Map<String, String> paymentData) {
+    protected void setPaymentData(Map<String, String> paymentData) {
         if (paymentData.isEmpty()) {
             throw new IllegalArgumentException();
         } else {
